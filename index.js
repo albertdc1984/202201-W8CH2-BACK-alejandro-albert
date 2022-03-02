@@ -1,6 +1,6 @@
 require("dotenv").config();
 const chalk = require("chalk");
-const debug = require("debug")("social:");
+const debug = require("debug")("tuiter:");
 const databaseConnect = require("./database");
 
 const serverUp = require("./server/serverUp");

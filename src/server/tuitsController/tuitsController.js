@@ -2,11 +2,11 @@ const Tuit = require("../../database/models/Tuit");
 
 const getTuits = async (req, res, next) => {
   try {
-    const users = await Tuit.find();
-    res.status(200).json({ users });
+    const tuits = await Tuit.find();
+    res.status(200).json({ tuits });
   } catch (error) {
     next(error);
   }
 };
 
-export default getTuits;
+module.exports = getTuits;

@@ -1,9 +1,9 @@
 require("dotenv").config();
-const chalk = require("chalk");
 const debug = require("debug")("tuiter:");
+const chalk = require("chalk");
 const databaseConnect = require("./database");
-
 const serverUp = require("./server/serverUp");
+
 const app = require("./server/index");
 
 const port = process.env.PORT || 4000;

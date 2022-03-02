@@ -9,4 +9,11 @@ const getTuits = async (req, res, next) => {
   }
 };
 
-module.exports = getTuits;
+const publishTuit = async (req, res) => {
+  const { date, text, likes } = req.body;
+  const tuit = { date, text, likes };
+
+  const newTuit = await Tuit.create(tuit);
+  res.json(newTuit);
+};
+module.exports = { getTuits, publishTuit };

@@ -2,9 +2,12 @@
   "name": "202201-w8ch2-back-alejandro-albert",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose"
+    "start": "node src/index.js",
+    "start-dev": "nodemon src -q",
+    "test": "jest --watchAll",
+    "test-coverage": "jest --watchAll --coverage"
   },
   "author": "",
   "license": "ISC",

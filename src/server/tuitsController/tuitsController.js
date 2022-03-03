@@ -22,6 +22,7 @@ const publishTuit = async (req, res) => {
 const getUsers = async (req, res, next) => {
   try {
     const tuiteros = await Tuitero.find();
+
     res.json({ tuiteros });
   } catch (error) {
     next(error);
@@ -36,4 +37,15 @@ const newTuiteroController = async (req, res) => {
   return res.status(201);
 };
 
-module.exports = { getTuits, publishTuit, getUsers, newTuiteroController };
+const deleteTuitero = async (req, res) => {
+  const { id } = req.params;
+  const deletedTuitero = await Tuitero.findByIdAndDelete(id);
+  res.json(deletedTuitero);
+};
+module.exports = {
+  getTuits,
+  publishTuit,
+  getUsers,
+  newTuiteroController,
+  deleteTuitero,
+};

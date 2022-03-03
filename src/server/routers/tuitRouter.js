@@ -6,6 +6,7 @@ const {
   getUsers,
   newTuiteroController,
   deleteTuitero,
+  changeTuitero,
 } = require("../tuitsController/tuitsController");
 
 const router = express.Router();
@@ -15,5 +16,6 @@ router.post("/", publishTuit);
 router.get("/tuiteros", getUsers);
 router.delete("/tuiteros/:id", deleteTuitero);
 router.post("/tuiteros/new", newTuiteroController);
+router.patch("/tuiteros/:id", changeTuitero);
 
 module.exports = router;

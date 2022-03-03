@@ -47,6 +47,7 @@ const changeTuitero = async (req, res) => {
   const { name, username } = req.body;
   const tuiteroToUpdate = { name, username };
   const { id } = req.params;
+
   const updatedTuitero = await Tuitero.findByIdAndUpdate(id, tuiteroToUpdate);
   res.json(updatedTuitero);
 };

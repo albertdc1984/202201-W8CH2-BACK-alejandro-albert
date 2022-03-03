@@ -1,10 +1,10 @@
 const Tuit = require("../../database/models/Tuit");
-const User = require("../../database/models/User");
+const Tuitero = require("../../database/models/Tuitero");
 
 const getTuits = async (req, res, next) => {
   try {
     const tuits = await Tuit.find();
-    res.status(200).json({ tuits });
+    res.json({ tuits });
   } catch (error) {
     next(error);
   }
@@ -20,18 +20,18 @@ const publishTuit = async (req, res) => {
 
 const getUsers = async (req, res, next) => {
   try {
-    const users = await User.find();
-    res.status(200).json({ users });
+    const tuiteros = await Tuitero.find();
+    res.status(200).json({ tuiteros });
   } catch (error) {
     next(error);
   }
 };
 
-const newTwitero = async (req, res) => {
+const newTuiteroController = async (req, res) => {
   const { name, username } = req.body;
-  const user = { name, username };
-  const newUser = await User.create(user);
-  res.json(newUser);
+  const tuitero = { name, username };
+  const newTuitero = await Tuitero.create(tuitero);
+  res.json(newTuitero);
 };
 
-module.exports = { getTuits, publishTuit, getUsers, newTwitero };
+module.exports = { getTuits, publishTuit, getUsers, newTuiteroController };

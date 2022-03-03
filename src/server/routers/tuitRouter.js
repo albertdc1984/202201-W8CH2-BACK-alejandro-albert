@@ -4,13 +4,13 @@ const {
   getTuits,
   publishTuit,
   getUsers,
-  newTwitero,
+  newTuiteroController,
 } = require("../tuitsController/tuitsController");
 
 const router = express.Router();
 
 router.get("/", getTuits);
 router.post("/", publishTuit);
-router.get("/twiteros", getUsers);
-router.post("/twiteros", newTwitero);
+router.get("/tuiteros", getUsers);
+router.post("/tuiteros", newTuiteroController);
 module.exports = router;

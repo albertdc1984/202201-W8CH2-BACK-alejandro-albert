@@ -27,4 +27,11 @@ const getUsers = async (req, res, next) => {
   }
 };
 
-module.exports = { getTuits, publishTuit, getUsers };
+const newTwitero = async (req, res) => {
+  const { name, username } = req.body;
+  const user = { name, username };
+  const newUser = await User.create(user);
+  res.json(newUser);
+};
+
+module.exports = { getTuits, publishTuit, getUsers, newTwitero };

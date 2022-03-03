@@ -16,12 +16,13 @@ const publishTuit = async (req, res) => {
 
   const newTuit = await Tuit.create(tuit);
   res.json(newTuit);
+  return res.status(201);
 };
 
 const getUsers = async (req, res, next) => {
   try {
     const tuiteros = await Tuitero.find();
-    res.status(200).json({ tuiteros });
+    res.json({ tuiteros });
   } catch (error) {
     next(error);
   }
@@ -32,6 +33,7 @@ const newTuiteroController = async (req, res) => {
   const tuitero = { name, username };
   const newTuitero = await Tuitero.create(tuitero);
   res.json(newTuitero);
+  return res.status(201);
 };
 
 module.exports = { getTuits, publishTuit, getUsers, newTuiteroController };

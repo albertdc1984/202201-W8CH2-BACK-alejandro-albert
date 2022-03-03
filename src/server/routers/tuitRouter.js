@@ -14,6 +14,6 @@ router.get("/", getTuits);
 router.post("/", publishTuit);
 router.get("/tuiteros", getUsers);
 router.delete("/tuiteros/:id", deleteTuitero);
-router.post("/tuiteros", newTuiteroController);
+router.post("/tuiteros/new", newTuiteroController);
 
 module.exports = router;

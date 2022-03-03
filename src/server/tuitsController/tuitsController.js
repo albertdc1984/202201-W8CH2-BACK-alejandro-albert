@@ -42,10 +42,20 @@ const deleteTuitero = async (req, res) => {
   const deletedTuitero = await Tuitero.findByIdAndDelete(id);
   res.json(deletedTuitero);
 };
+
+const changeTuitero = async (req, res) => {
+  const { name, username } = req.body;
+  const tuiteroToUpdate = { name, username };
+  const { id } = req.params;
+  const updatedTuitero = await Tuitero.findByIdAndUpdate(id, tuiteroToUpdate);
+  res.json(updatedTuitero);
+};
+
 module.exports = {
   getTuits,
   publishTuit,
   getUsers,
   newTuiteroController,
   deleteTuitero,
+  changeTuitero,
 };

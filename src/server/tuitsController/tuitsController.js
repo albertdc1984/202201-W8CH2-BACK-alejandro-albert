@@ -1,4 +1,5 @@
 const Tuit = require("../../database/models/Tuit");
+const User = require("../../database/models/User");
 
 const getTuits = async (req, res, next) => {
   try {
@@ -16,4 +17,14 @@ const publishTuit = async (req, res) => {
   const newTuit = await Tuit.create(tuit);
   res.json(newTuit);
 };
-module.exports = { getTuits, publishTuit };
+
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res.status(200).json({ users });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getTuits, publishTuit, getUsers };
